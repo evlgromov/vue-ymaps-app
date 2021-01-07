@@ -24,7 +24,9 @@ Vue.use(YmapPlugin, {
 })
 
 Vue.prototype.$eventBus = new Vue();
-const config = {baseURL: 'http://localhost:3000/api'}
+const config = {
+  baseURL: 'http://localhost:3000/api'
+}
 
 const authInterceptor = (config) => {
   const authToken = localStorage.getItem('token')
@@ -54,7 +56,9 @@ axios.interceptors.response.use(
 
 new Vue({
   router,
-  axios: axios.create(config),
+  axios: axios.create({
+    baseURL: 'http://localhost:3000/api'
+  }),
   store,
   render: h => h(App)
 }).$mount('#app')
