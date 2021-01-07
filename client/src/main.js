@@ -57,7 +57,7 @@ axios.interceptors.response.use(
 new Vue({
   router,
   axios: axios.create({
-    baseURL: 'http://localhost:3000/api'
+    baseURL: 'https://vue-ymaps-server.herokuapp.com/api'
   }),
   store,
   render: h => h(App)
