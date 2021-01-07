@@ -28,6 +28,8 @@ const config = {
   baseURL: 'http://localhost:3000/api'
 }
 
+axios = axios.create(config)
+
 const authInterceptor = (config) => {
   const authToken = localStorage.getItem('token')
   config.headers.Authorization = authToken;
@@ -56,9 +58,7 @@ axios.interceptors.response.use(
 
 new Vue({
   router,
-  axios: axios.create({
-    baseURL: 'http://localhost:3000/api'
-  }),
+  axios,
   store,
   render: h => h(App)
 }).$mount('#app')
