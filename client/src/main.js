@@ -56,9 +56,7 @@ axios.interceptors.response.use(
 
 new Vue({
   router,
-  axios: axios.create({
-    baseURL: 'https://vue-ymaps-server.herokuapp.com/api'
-  }),
+  axios,
   store,
   render: h => h(App)
 }).$mount('#app')
