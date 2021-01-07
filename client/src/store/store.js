@@ -6,7 +6,7 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
-axios.defaults.baseURL = 'http://localhost:3000/api'
+axios.defaults.baseURL = 'https://vue-ymaps-server.herokuapp.com/api'
 
 export default new Vuex.Store({
   modules: {
