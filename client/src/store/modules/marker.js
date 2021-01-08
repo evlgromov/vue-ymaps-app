@@ -20,22 +20,20 @@ export default {
       })
     },
     addMarker(context, payload) {
-      return new Promise((resolve, reject) => {
-        axios
-          .post(`/location`, {
-              name: payload.name,
-              coords: [payload.longitude, payload.latitude],
-            }
-          )
-          .then(res => {
-            context.commit('addMarker', res.data)
-            resolve(res.data)
-          })
-          .catch(e => {
-            console.log(e)
-            reject(e)
-          })
-      })
+      return axios
+        .post(`/location`, {
+            name: payload.name,
+            coords: [payload.longitude, payload.latitude],
+          }
+        )
+        .then(res => {
+          context.commit('addMarker', res.data)
+          return res.data
+        })
+        .catch(e => {
+          console.log(e)
+          throw e
+        })
     },
     editMarker(context, marker) {
       return new Promise((resolve, reject) => {
